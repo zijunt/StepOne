@@ -1,0 +1,15 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragmentRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--Shows the following data-->
+    <!-- # Image from URL-->
+    <!-- # Title of image-->
+    <!-- # Is public true?-->
+
+
+    <!--Bonus: Making the photo pinch and zoom-->
+
+</LinearLayout>
