@@ -1,5 +1,6 @@
 package com.learning.stepone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -45,10 +46,12 @@ public class MainActivity extends AppCompatActivity {
         emptyButton = (Button) findViewById(R.id.Button01);
 
 
+
+
         Gson gson = new Gson();
-        PhotoPage flickrPhotos = gson.fromJson(TestData.testData, PhotoPage.class);
+        final PhotoPage flickrPhotos = gson.fromJson(TestData.testData, PhotoPage.class);
         photoListAdapter = new PhotoListAdapter(this, flickrPhotos.getPhoto());
-        Log.i("out",flickrPhotos.getPhoto().toString());
+//        Log.i("out",flickrPhotos.getPhoto().toString());
 
         emptyButton.setOnClickListener(new View.OnClickListener() {
 
@@ -62,8 +65,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // go to the photo details screen
-                Toast.makeText(MainActivity.this, photoList.get(position).getPhotoUrlThumbNail(), Toast.LENGTH_LONG)
-                        .show();
+//                Toast.makeText(MainActivity.this, position, Toast.LENGTH_LONG).show();
+                Log.i("out", flickrPhotos.getPhoto().get(position).getTitle());
+
+
+                Intent in = new Intent(MainActivity.this,PhotoDetailsActivity.class);
+                in.putExtra("title", flickrPhotos.getPhoto().get(position).getTitle());
+                in.putExtra("imageUrl",flickrPhotos.getPhoto().get(position).getPhotoUrl());
+                in.putExtra("public", flickrPhotos.getPhoto().get(position).getIspublic());
+
+                startActivity(in);
             }
         });
     }

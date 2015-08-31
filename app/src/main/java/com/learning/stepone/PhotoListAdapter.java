@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.NetworkImageView;
 import com.learning.stepone.model.Photo;
 
 import java.net.URL;
@@ -45,7 +46,7 @@ public class PhotoListAdapter extends BaseAdapter {
     public class Holder
     {
         TextView title;
-        ImageView img;
+        NetworkImageView img;
     }
 
     @Override
@@ -63,7 +64,7 @@ public class PhotoListAdapter extends BaseAdapter {
 
         // bind data to view
         TextView textView = (TextView) convertView.findViewById(R.id.photoTitle);
-        ImageView imageView = (ImageView) convertView.findViewById(R.id.photoImageView);
+        NetworkImageView imageView = (NetworkImageView) convertView.findViewById(R.id.photoImageView);
         textView.setText(mPhoto.get(position).getTitle());
         Uri myUri = Uri.parse(mPhoto.get(position).getPhotoUrlThumbNail());
         imageView.setImageURI(myUri);

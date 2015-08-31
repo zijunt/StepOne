@@ -6,9 +6,23 @@
 
     <!--Shows the following data-->
     <!-- # Image from URL-->
-    <!-- # Title of image-->
-    <!-- # Is public true?-->
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/photoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
+
+    <!-- # Title of image-->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/photoTitle" />
+
+    <!-- # Is public true?-->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/photoPublic" />
 
     <!--Bonus: Making the photo pinch and zoom-->
 
