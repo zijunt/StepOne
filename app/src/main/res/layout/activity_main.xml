@@ -20,6 +20,18 @@
         android:layout_height="match_parent">
 
         <!--Fill in extra empty layout data-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Empty"
+            android:id="@+id/Empty" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check"
+            android:id="@+id/Button01"
+            android:gravity="center"/>
 
     </RelativeLayout>
 
