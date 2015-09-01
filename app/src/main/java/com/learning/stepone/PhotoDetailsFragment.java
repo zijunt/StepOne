@@ -28,20 +28,19 @@ public class PhotoDetailsFragment extends Fragment {
         return new PhotoDetailsFragment();
     }
 
+    public static PhotoDetailsFragment newInstance(String url, String title, boolean isPublic) {
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.photo_details, container);
+        View view = inflater.inflate(R.layout.photo_details, container, false);
 
-        mImage = (NetworkImageView) getView().findViewById(R.id.photoImageView);
-        mPhotoTitle = (TextView) getView().findViewById(R.id.photoTitle);
-        mIsPublic = (TextView) getView().findViewById(R.id.photoPublic);
-//
-//        mPhotoTitle.setText(getActivity().getIntent().getExtras().getString("title"));
-//        mIsPublic.setText(getActivity().getIntent().getExtras().getString("public"));
-        String title = getArguments().getString("title");
-        Log.i("fragment",title);
-        mPhotoTitle.setText(title);
+
+        Bundle b = getArguments();
+
+        mPhotoTitle = b.getString("title");
         return view;
     }
 

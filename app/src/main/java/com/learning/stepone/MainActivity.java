@@ -37,21 +37,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mListView = (ListView)findViewById(R.id.listView);
+        mListView = (ListView) findViewById(R.id.listView);
         mListView.setEmptyView(findViewById(R.id.emptyInfoLayout));
-
 
 
         //botton
         emptyButton = (Button) findViewById(R.id.Button01);
 
 
-
-
         Gson gson = new Gson();
         final PhotoPage flickrPhotos = gson.fromJson(TestData.testData, PhotoPage.class);
         photoListAdapter = new PhotoListAdapter(this, flickrPhotos.getPhoto());
-//        Log.i("out",flickrPhotos.getPhoto().toString());
+//        Log.i("ttt",flickrPhotos.getPhoto().toString());
 
         emptyButton.setOnClickListener(new View.OnClickListener() {
 
@@ -66,13 +63,15 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // go to the photo details screen
 //                Toast.makeText(MainActivity.this, position, Toast.LENGTH_LONG).show();
-                Log.i("out", flickrPhotos.getPhoto().get(position).getTitle());
+//                Log.i("ttt", flickrPhotos.getPhoto().get(position).getTitle());
 
 
-                Intent in = new Intent(MainActivity.this,PhotoDetailsActivity.class);
+                Intent in = new Intent(MainActivity.this, PhotoDetailsActivity.class);
                 in.putExtra("title", flickrPhotos.getPhoto().get(position).getTitle());
-                in.putExtra("imageUrl",flickrPhotos.getPhoto().get(position).getPhotoUrl());
+                in.putExtra("imageUrl", flickrPhotos.getPhoto().get(position).getPhotoUrl());
                 in.putExtra("public", flickrPhotos.getPhoto().get(position).getIspublic());
+
+                Log.i("ttt", flickrPhotos.getPhoto().get(position).getTitle());
 
                 startActivity(in);
             }
